@@ -7,3 +7,4 @@ https://drive.google.com/file/d/17hqv7VPqLjtTMDRCtLsEkIPVDkGgz5EB/view?usp=shari
 
 ## Integrantes
 Gabriel de Souza Rosa
+Yuri Dimitre Dias de Faria
