@@ -3,7 +3,7 @@ O suposto arquivo busca simular um agente sem capacidade de aprendizado ou melho
 
 ## Link 
 Você pode visualizar um link explicativo deste código aplenas clicando 
-<a href="https://drive.google.com/file/d/17hqv7VPqLjtTMDRCtLsEkIPVDkGgz5EB/view?usp=sharing">Aqui<\a>
+<a href="https://drive.google.com/file/d/17hqv7VPqLjtTMDRCtLsEkIPVDkGgz5EB/view?usp=sharing">Aqui<a>
 
 
 ## Integrantes
