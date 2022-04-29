@@ -3,3 +3,4 @@ Olá, meu nome é Gabriel Rosa. No momento, sou estudante de Engenharia de Compu
 
 ## Arquivos em ordem cronológica 
 1. Vaccum-Cleaner (Sistema racional capaz de lipar dois compartimentos)
+2. Missionary-Cannibals (Sistema racional que resolve problema do 'missionarios e canibals' através de busca em arvore)
