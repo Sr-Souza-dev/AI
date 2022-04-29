@@ -8,4 +8,4 @@ O problema pode ser mais bem visualizado no <a href="https://www.jogosdaescola.c
 
 ## Diagrama do espaço de estados
 O diagrama de espaço de estados espresso abaixo considera todos os estados possiveis para o problema 'canibais e missionários', diferenciando os lados direito e esquerto do rio e suas possiveis combinações. 
-<img src="images/estados.png" style="width: 70%">
+<img src="images/estados.png" style="width: 90%; margin: auto 0;">
