@@ -1,18 +1,22 @@
+tree = {
+    1:[2,3,4],
+    2:[5,1],
+    3:[1],
+    4:[5, 1],
+    5:[2,4,6],
+    6:[7,5],
+    7:[8,6],
+    8:[9,7],
+    9:[8,10],
+    10:[9,11],
+    11:[10,12],
+    12:[11,13,14],
+    13:[12,15],
+    14:[12,15],
+    15:[13,14]
+}
 
-class NodoArvore:
-    def __init__(self, status={"missionaryR":"", "cannibalsR":"", "missionaryL":"", "cannibalsL":""}, chave = None, leaf = []):
-        self.status = status
-        self.chave = chave
-        self.leaf = leaf
-
-    def __repr__(self):
-        st = ""
-        for i in self.leaf:
-            st += str(i) + ", "
-        return '%s -> %s ' % (self.chave, st)
 
 
 
-
-tree = NodoArvore({"missionaryR":"3", "cannibalsR":"3", "missionaryL":"0", "cannibalsL":"0"}, 0)
 
