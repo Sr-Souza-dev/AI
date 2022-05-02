@@ -18,7 +18,7 @@ O agente é aquele capaz de identificar o ambiente e atuar sobre ele, formando u
 3. Autonomia: É o agente que contém algum conhecimento prévio, conseguir realizar/obter outros conhecimento a partir disso.
 
 <br>
-**Agente Racional (PEAS)** 
+__Agente Racional (PEAS)__
 
 1. Performance: É uma medida quantitativa que classifica o desempenho do agente (o agente é racional se maximiza o valor da performace).
 2. Environment: É o ambiente de atução do agente. Ex: Cozinha, transito... (Um agente deve ser capaz de identificar o ambiente e realizar algo sobre ele)
@@ -27,7 +27,8 @@ O agente é aquele capaz de identificar o ambiente e atuar sobre ele, formando u
 <br>
 
 <br>
-**Propriedades de Ambientes de Tarefas** <br>
+**Propriedades de Ambientes de Tarefas** 
+
 1. Completamente observável: Para definir se o ambiente será completamente observável, primeiramente é necessario definir os limites do ambiente, caso os sensores do agente seja capaz de contempler todo ambiente então podemos afirmar que ele está em um ambiente totalmente observável == 'onisciênte'.
 2. Parcialmente observável: É quando os sensores do agente não conseguem contemplar todo o ambiente (ao qual ele esta inserido) ao mesmo tempo.
 3. Determinístico: ambiente determinístico é quando o agente está prestes a realizar uma tarefa e já tem total certeza do resultado que essa ação gerará. Ex: Vai executar a limpeza de um ambiente e tem total certeza que ao final o ambiente estará limpo.
