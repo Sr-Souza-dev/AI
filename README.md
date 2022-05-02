@@ -9,24 +9,23 @@ Olá, meu nome é Gabriel Rosa. No momento, sou estudante de Engenharia de Compu
 ## Agentes
 O agente é aquele capaz de identificar o ambiente e atuar sobre ele, formando um ciclo infinito de execução: Identifica Ambiente -> Atua sobre o ambiente -> Identifica o 'novo' ambiente...
 
-<br> <br>
+<br> 
 "Racionalidade maximiza o desempenho esperado; Onisciência maximiza o desempenho REAL" 
-**O agente pode ter:** <br>
-<br>
+<br>**O agente pode ter:** 
 1. Onisciência: O agente tem infromações de todo o ambiente de atuação (sabe como o ambiente esta a cada momento).
 2. Aprendizado: O agente já realizou determinada atividades algumas vezes e consegue fazer suposições racionais a partir da experiência em execuções futuras
 3. Autonomia: É o agente que contém algum conhecimento prévio, conseguir realizar/obter outros conhecimento a partir disso.
 
-<br> <br>
-**Agente Racional (PEAS)** <br>
+<br>
+**Agente Racional (PEAS)** 
 1. Performance: É uma medida quantitativa que classifica o desempenho do agente (o agente é racional se maximiza o valor da performace).
 2. Environment: É o ambiente de atução do agente. Ex: Cozinha, transito... (Um agente deve ser capaz de identificar o ambiente e realizar algo sobre ele)
 3. Actuators: São os componetes do agente que realizam a função de resposta. Ex: Para um carro tem-se: freio, acelerado... (Um agente racional para determinado ambiente é capaz de atuar sobre ele)
 4. Sensors: São componetes do agente que o faz compreender/identificar o ambiente/estado em que ele esta inserido. Ex: Para um carro tem-se: velocimetro, termômetro...
 <br>
 
-<br> <br>
-**Propriedades de Ambientes de Tarefas** <br>
+<br>
+**Propriedades de Ambientes de Tarefas** 
 1. Completamente observável: Para definir se o ambiente será completamente observável, primeiramente é necessario definir os limites do ambiente, caso os sensores do agente seja capaz de contempler todo ambiente então podemos afirmar que ele está em um ambiente totalmente observável == 'onisciênte'.
 2. Parcialmente observável: É quando os sensores do agente não conseguem contemplar todo o ambiente (ao qual ele esta inserido) ao mesmo tempo.
 3. Determinístico: ambiente determinístico é quando o agente está prestes a realizar uma tarefa e já tem total certeza do resultado que essa ação gerará. Ex: Vai executar a limpeza de um ambiente e tem total certeza que ao final o ambiente estará limpo.
