@@ -11,13 +11,13 @@ O agente é aquele capaz de identificar o ambiente e atuar sobre ele, formando u
 
 <br> 
 "Racionalidade maximiza o desempenho esperado; Onisciência maximiza o desempenho REAL" 
-<br>**O agente pode ter:** 
+<br>**O agente pode ter:** <br>
 1. Onisciência: O agente tem infromações de todo o ambiente de atuação (sabe como o ambiente esta a cada momento).
 2. Aprendizado: O agente já realizou determinada atividades algumas vezes e consegue fazer suposições racionais a partir da experiência em execuções futuras
 3. Autonomia: É o agente que contém algum conhecimento prévio, conseguir realizar/obter outros conhecimento a partir disso.
 
 <br>
-**Agente Racional (PEAS)** 
+**Agente Racional (PEAS)** <br>
 1. Performance: É uma medida quantitativa que classifica o desempenho do agente (o agente é racional se maximiza o valor da performace).
 2. Environment: É o ambiente de atução do agente. Ex: Cozinha, transito... (Um agente deve ser capaz de identificar o ambiente e realizar algo sobre ele)
 3. Actuators: São os componetes do agente que realizam a função de resposta. Ex: Para um carro tem-se: freio, acelerado... (Um agente racional para determinado ambiente é capaz de atuar sobre ele)
@@ -25,7 +25,7 @@ O agente é aquele capaz de identificar o ambiente e atuar sobre ele, formando u
 <br>
 
 <br>
-**Propriedades de Ambientes de Tarefas** 
+**Propriedades de Ambientes de Tarefas** <br>
 1. Completamente observável: Para definir se o ambiente será completamente observável, primeiramente é necessario definir os limites do ambiente, caso os sensores do agente seja capaz de contempler todo ambiente então podemos afirmar que ele está em um ambiente totalmente observável == 'onisciênte'.
 2. Parcialmente observável: É quando os sensores do agente não conseguem contemplar todo o ambiente (ao qual ele esta inserido) ao mesmo tempo.
 3. Determinístico: ambiente determinístico é quando o agente está prestes a realizar uma tarefa e já tem total certeza do resultado que essa ação gerará. Ex: Vai executar a limpeza de um ambiente e tem total certeza que ao final o ambiente estará limpo.
