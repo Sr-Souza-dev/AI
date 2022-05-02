@@ -11,13 +11,15 @@ O agente é aquele capaz de identificar o ambiente e atuar sobre ele, formando u
 
 <br> 
 "Racionalidade maximiza o desempenho esperado; Onisciência maximiza o desempenho REAL" 
-<br>**O agente pode ter:** <br>
+<br> **O agente pode ter:** <br>
+
 1. Onisciência: O agente tem infromações de todo o ambiente de atuação (sabe como o ambiente esta a cada momento).
 2. Aprendizado: O agente já realizou determinada atividades algumas vezes e consegue fazer suposições racionais a partir da experiência em execuções futuras
 3. Autonomia: É o agente que contém algum conhecimento prévio, conseguir realizar/obter outros conhecimento a partir disso.
 
 <br>
-**Agente Racional (PEAS)** <br>
+**Agente Racional (PEAS)** 
+
 1. Performance: É uma medida quantitativa que classifica o desempenho do agente (o agente é racional se maximiza o valor da performace).
 2. Environment: É o ambiente de atução do agente. Ex: Cozinha, transito... (Um agente deve ser capaz de identificar o ambiente e realizar algo sobre ele)
 3. Actuators: São os componetes do agente que realizam a função de resposta. Ex: Para um carro tem-se: freio, acelerado... (Um agente racional para determinado ambiente é capaz de atuar sobre ele)
