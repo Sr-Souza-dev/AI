@@ -7,5 +7,14 @@ No problema dos canibais e missionários, três missionários e três canibais p
 O problema pode ser mais bem visualizado no <a href="https://www.jogosdaescola.com.br/canibais-e-missionarios/">JOGO<a> em que você deve passar todos os canibais e os missionários para o outro lado do rio. Cuidado para os canibais não devorarem os missionários! Utilize o mouse para jogar.
 
 ## Diagrama do espaço de estados
-O diagrama de espaço de estados espresso abaixo considera todos os estados possiveis para o problema 'canibais e missionários', diferenciando os lados direito e esquerto do rio e suas possiveis combinações. 
+Dado o problema descrito acima, é possível desenvolver a formulação do problema considerando as possibilidades de jogo, tal que:
+* Estado Inicial: O estado inicial é o momento em que se inicia o jogo com 3 missionarios e 3 canibais ao lado direito do rio. 
+* Ação: Sua ação parte do momento em que é possível transitar com pessoas para o outro lado do rio, gerando as seguintes possibilidade: (1,0),(0,1) e (1,1)
+* Teste de objetivo: O teste de objetivo é feito a todo novo estado encontrado, comparando o estado atual com o estado meta, em que há 3 missionarios e 3 canibais ao lado esquerdo do rio.
+* Função sucessora: A função sucessora define qual ação tomar (qual trajeto seguir diante várias possibilidade)
+* Meta: É o estado que se deseja alcançar, dando fim ao jogo no cenário proposto (3 missionarios e 3 canibais ao lado esquerdo do rio).
+  
+Apartir das descrições definidas, o diagrama de espaço de estados expresso abaixo considera todos os estados possiveis para o problema 'canibais e missionários', diferenciando os lados direito e esquerto do rio e suas possiveis combinações. 
 <img src="images/estados.png" style="width: 100%">
+
+Como é possível observar, o espaço de estados do problema é bem definido logicamente, mas o que faz com que este problema seja dificilmente resolvido é a grande chance de mover de forma errada e cair em um loop (sempre voltando a estados ja passados).

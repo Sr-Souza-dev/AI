@@ -31,10 +31,21 @@ def bfs(tree, begin, end):
 
     while(len(current) > 0):
         if (end in tree[current[0]]):
-            verified.append(current[0])                 
+            verified.append(current[0])  
+
+            for index in range(len(verified)-1, -1, -1):
+                if (verified[index] == begin):
+                    print("aqui")
+                    path.append(verified[index])
+                elif(verified[index] in tree[verified[index-1]]):
+                    path.append(verified[index])
+            path = path[::-1]
+            path.append(end)
+
             print("Você encontrou sua meta! Meta: ", end)
             print("Nodos verificados: ", verified)
-            print("Nodos Irrelevantes: ", irrelevant)
+            print("Path: ", path)
+            
             return
         if(len(tree[current[0]]) <= 1):
             irrelevant.append(current[0])
