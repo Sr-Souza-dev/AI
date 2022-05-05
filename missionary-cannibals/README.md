@@ -18,3 +18,7 @@ Apartir das descrições definidas, o diagrama de espaço de estados expresso ab
 <img src="images/estados.png" style="width: 100%">
 
 Como é possível observar, o espaço de estados do problema é bem definido logicamente, mas o que faz com que este problema seja dificilmente resolvido é a grande chance de mover de forma errada e cair em um loop (sempre voltando a estados ja passados).
+
+<br> <br>
+
+**OBS:** O código desenvolvido considera os estados expressos na imagem acima, para compreende-lo facilitadamente, execute-o com a imagem ao lado.
