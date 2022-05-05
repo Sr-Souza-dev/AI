@@ -159,15 +159,26 @@ em que:
 
 
 ### Best First / Greedy Search (Busca Gulosa)
-Os algoritmos de busca gulosa é similar do algoritmo de busca de custo uniforme, sendo a heuristica a função que pondera o custo de cada nodo/transição. Diferente do algoritmo de busca de custo uniforme que visa o ótimo geral, esse algoritmo visa encontrar a solução o mais rápido possível (com menor custo computacional) atráves da heuristica inserida, sem garantir otimalidade. Ou seja, enquanto no algoritmo de custo uniforme o nodo expandido é o de menor custo em relação ao nodo atual, na busca gulosa o nodo expandido é o que está mais próximo a meta (condição final) de acordo com a heuristica inserida.
+Os algoritmos de busca gulosa é similar do algoritmo de busca de custo uniforme, sendo a heurística a função que pondera o custo de cada nodo/transição. Diferente do algoritmo de busca de custo uniforme que visa o ótimo geral, esse algoritmo visa encontrar a solução o mais rápido possível (com menor custo computacional) atráves da heurística inserida, sem garantir otimalidade. Ou seja, enquanto no algoritmo de custo uniforme o nodo expandido é o de menor custo em relação ao nodo atual, na busca gulosa o nodo expandido é o que está mais próximo a meta (condição final) de acordo com a heurística inserida.
 
-* *Completeza*: Na maioria dos casos ele é incompleto (depende da heuristica aplicada) 
+* *Completeza*: Na maioria dos casos ele é incompleto (depende da heurística aplicada) 
 * *Otimização*: Não é ótimo, devido a sua busca ser direcionada ao menor gasto computacional possível, ele somente tenta encontrar a solução.
 * *Complexidade de Tempo e espaço*: O(b^m), em que 'b' é o fator de ramificação da arvore e 'm' é a profundidade máxima da arvore de busca.
 
-<img src="images/bbs.png" style="width: 90%">
+<img src="images/gred.png" style="width: 90%">
+<br>
+OBS: O algoritmo de busca gulosa considera somente a heurística do problema, sendo: f(n) = h(n)
 
 
+
+### Best First / A*
+Para esse algoritmo garantir a otimalizadade do problema, é necessario que haja uma heurística admissível, sendo que, uma heurística é dita como admissível se ela nunca superestima o custo h(n) de atingir o objetivo a partir do nodo n (g(n) + h(n) <= g(n*) === O custo do caminho da raiz até o nodo + o custo da heuristica do nodo até a meta deve ser <= Ao custo real da raiz até a meta)
+Essa busca utiliza de duas informações para definir os seus passos, ela soma o custo da raiz até um determinado nodo e desse mesmo nodo até a meta (por heuristica), o nodo que apresentar o menor valor é o que será expandido e sequentemente verificado.
+
+* *Completeza*: Sim
+* *Otimização*: Sim (se heuristica admissivel)
+* *Complexidade de Tempo e espaço*: Complexidade é exponencial
+* *Complexidade de espaço*:
 
 
 
