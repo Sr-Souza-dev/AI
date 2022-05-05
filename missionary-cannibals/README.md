@@ -21,4 +21,4 @@ Como é possível observar, o espaço de estados do problema é bem definido log
 
 <br> <br>
 
-**OBS:** O código desenvolvido considera os estados expressos na imagem acima, para compreende-lo facilitadamente, execute-o com a imagem ao lado.
+**OBS:** O código desenvolvido considera o espaço de estados expressos na imagem acima, para compreende-lo facilitadamente, execute-o com a imagem ao lado.
