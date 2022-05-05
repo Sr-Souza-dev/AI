@@ -16,7 +16,33 @@ tree = {
     15:[13,14]
 }
 
+def bfs(tree, begin, end):
+    verified = []
+    current = []
+    irrelevant = []
+    path = []
 
+    if (begin == end):
+        print("O estado inicial já é a meta desejada")
+        return
 
+    current = tree[begin]
+    verified.append(begin)
 
+    while(len(current) > 0):
+        if (end in tree[current[0]]):
+            verified.append(current[0])                 
+            print("Você encontrou sua meta! Meta: ", end)
+            print("Nodos verificados: ", verified)
+            print("Nodos Irrelevantes: ", irrelevant)
+            return
+        if(len(tree[current[0]]) <= 1):
+            irrelevant.append(current[0])
+        if (not(current[0] in verified)):
+            current = current + tree[current[0]]
+            verified.append(current[0])
+        current.pop(0)
+    
+    print("Não foi encontrado soluções para este problema!")
 
+bfs(tree, 1, 15)
