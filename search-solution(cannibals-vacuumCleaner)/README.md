@@ -1,6 +1,7 @@
-# Descrição
-O objetivo deste diretório é resolver um problema considerado básico no ramo da inteligência artificial (canibais e missionários), o qual foi utilizado por <a href="https://en.wikipedia.org/wiki/Saul_Amarel"> Saul Amarel<a> como um exemplo de representação de problemas.
-<br>
+# Introdução
+O objetivo deste diretório é resolver um problemas considerado básicos no ramo da inteligência artificial, sendo o primeiro 'canibais e missionários', o qual foi utilizado por <a href="https://en.wikipedia.org/wiki/Saul_Amarel"> Saul Amarel<a> como um exemplo de representação de problemas. Já o segundo problema trata uma alteração no ambiente do trabalho anterior (diretório 'vacuum-cleaner'), o qual deve-se limpar todas as salas que ainda estão sujas.
+
+# Descrição (missionary-cannibals)
 No problema dos canibais e missionários, três missionários e três canibais precisam atravessar um rio com um barco que pode transportar no máximo duas pessoas (permitindo serem do mesmo grupo ou de grupos diferentes), sob a restrição de que, para ambas as margens, se há missionários presentes naquela margem, eles não podem ser ultrapassados pelo número de canibais na mesma margem (se fossem, os canibais comeriam os missionários.) O barco não pode atravessar o rio por si só, sem um ser a bordo.
 
 ## Jogo
@@ -21,4 +22,12 @@ Como é possível observar, o espaço de estados do problema é bem definido log
 
 <br> <br>
 
-**OBS:** O código desenvolvido considera o espaço de estados expressos na imagem acima, para compreende-lo facilitadamente, execute-o com a imagem ao lado.
+**OBS:** O código desenvolvido considera o espaço de estados expressos na imagem acima (busca informada), para compreende-lo facilitadamente, execute-o com a imagem ao lado.
+
+
+# Descrição (vacuum-cleaner)
+O suposto arquivo (dirty.py) busca simular um agente que deve limpar um conjunto de 9 sala, dividas como uma matriz 3x3 que utiliza de metodologias de busca para encontrar uma melhor e mais racional racional para o problema. Seu modo de trabalho/atuação é totalmente definido e resultará sempre as mesmas respostas independente da quantidade de vezes que for executado (Ex: Se for dada a regra de 'limpar' o local ficará limpo).
+
+## Análise
+Para este problema, há diversas metodologias de busca que encontram uma sulução viável, como exemplo,  podemos utilizar a busca em largura, custo uniforme, profundidade e suas variações... O influência na escolha da melhor metodologia de pesquisa para o devido problema são os custos computacionais e otimalidade da solução. 
+Como há muitos estados possiveis, o algoritmo de busca implementado foi o não informado por expansão em largura (busca em largura). Para desconsiderar a existência de loop é necessario que o problema seja modelado/tratado na forma de grafo, pois, será possível armazenar um 'histórico' dos estados já visitados.  
