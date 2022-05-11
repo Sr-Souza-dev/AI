@@ -11,7 +11,7 @@ class State:
     def __init__(self,roomba,squareMap,action = None,fatherState=None):
         self.roomba = roomba
         self.squareMap = squareMap
-        self.action = action,
+        self.action = action
         self.father = fatherState
     def isThisRoot():
         return self.fatherState == False
@@ -22,6 +22,7 @@ class State:
         return self.__str__()
     def __eq__(self, o):
         return o != None and self.roomba == o.roomba and self.squareMap == o.squareMap
+    
         
 
 class DirtCleaner:
@@ -30,13 +31,13 @@ class DirtCleaner:
         self.goal = goal 
         self.path = []
         self.discovered =[]
+        self.getBestPath()
     def isGoal(self,s,printi=False):
-        if printi:
-            print(s.squareMap)
         return self.goal == s.squareMap
     def actions(self,s:dict):
         a = []
         roomba = s.roomba
+        squareMap =  s.squareMap
         if roomba[0] != 0:
             a.append(ACTIONS.UP)
         if roomba[0] != 2:
@@ -65,6 +66,8 @@ class DirtCleaner:
         return state
     def buscaLargura(self,estados):        
         fronteira=[]
+        if self.isGoal(estados[0]):
+            return None
         for s in estados:
             for a in self.actions(s):
                 f = self.result(s, a)
@@ -80,16 +83,19 @@ class DirtCleaner:
     def getBestPath(self):
         s = self.buscaLargura([self.state])
         if s == None:
-            return "Nao possui solucao"
-        path = []
-        
+            return "Nao possui solucao"        
         while s != None:
-            path.append(s)
+            self.path.append(s)
             s = s.father
-        return path[::-1]
+        return self.path[::-1]
+    def getActionsToGoal(self):
+        if len(self.path) == 0:
+            return None
+        return list(a.action for a in self.path[::-1])
 
     def cost(self):
-        pass
+        return len(self.path)
+
 
 
 squareMap = [
@@ -105,5 +111,5 @@ goal = [
 initialState = State([1,1], squareMap)
 
 dirty = DirtCleaner(initialState,goal)
-print(dirty.getBestPath())
+print(dirty.getActionsToGoal())
 
