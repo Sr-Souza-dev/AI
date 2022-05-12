@@ -13,7 +13,7 @@ class State:
         self.squareMap = squareMap
         self.action = action
         self.father = fatherState
-    def isThisRoot():
+    def isThisRoot(self):
         return self.fatherState == False
     def __str__(self):
         string = "["+self.roomba.__str__()+","+self.squareMap.__str__()+","+self.action.__str__()+"]"

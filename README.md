@@ -2,8 +2,9 @@
 Olá, meu nome é Gabriel Rosa. No momento, sou estudante de Engenharia de Computação no CEFET-MG. Este repositório busca armazenar todas atividades realizadas durante a execução da materia de Inteligência Artificial... Qualquer dúvida ou detalhe que deseja tratar sobre estes documentos, sinta-se a vontande para propor algo ou entrar em contato. </br> Att. Gabriel.
 
 ## Arquivos em ordem cronológica 
-1. Vaccum-Cleaner (Sistema racional capaz de lipar dois compartimentos)
-2. Search-solution(cannibals-vacuumCleaner) (Sistema racional que resolve problema do 'missionarios e canibals' através de busca em arvore)
+1. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/vacuum-cleaner">Vaccum-Cleaner<a> -> Sistema racional capaz de lipar dois compartimentos;
+2. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/search-solution(missionary-cannibals)">Search-solution(missionary-cannibals)<a> -> Sistema racional que resolve problema do 'missionarios e canibals' através de busca em arvore BFS;
+3. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/search-solution(vacuum-cleaner)">Search-solution(vacuum-cleaner)<a> Evolução do algoritmo 1 em um ambiente 3x3 solucionado por BFS.
 
 # Resumo
 ## Agentes
