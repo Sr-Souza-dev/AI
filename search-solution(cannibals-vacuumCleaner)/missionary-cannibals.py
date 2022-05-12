@@ -35,7 +35,6 @@ def bfs(tree, begin, end):
 
             for index in range(len(verified)-1, -1, -1):
                 if (verified[index] == begin):
-                    print("aqui")
                     path.append(verified[index])
                 elif(verified[index] in tree[verified[index-1]]):
                     path.append(verified[index])
