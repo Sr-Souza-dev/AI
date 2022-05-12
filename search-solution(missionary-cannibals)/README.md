@@ -24,4 +24,6 @@ Como é possível observar, o espaço de estados do problema é bem definido log
 
 **OBS:** O código desenvolvido considera o espaço de estados expressos na imagem acima (busca informada), para compreende-lo facilitadamente, execute-o com a imagem ao lado.
 
-
+## Integrantes
+Gabriel de Souza Rosa <br>
+Yuri Dimitre Dias de Faria
