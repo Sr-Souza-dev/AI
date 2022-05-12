@@ -8,15 +8,16 @@ O suposto arquivo (dirty.py) busca simular um agente que deve limpar um conjunto
 ## Resultado Agente de busca (BFS) x Agente Reativo (Aleatório) 
 Resultados encontrados em 5 execuções do algoritmo <a href="">BFSvsReative.py<a>. Como o ambiente se altera em cada execução o resultado é não deterministico, podendo oferecer varias respostas diferentes em diversas tentativas
 
----------------------------------------
+
 |              RESULTADOS              |
 | Execução | BFS | Reativo (Aleatório) |
+| -------- | --- | ------------------- |
 |   1°     | 4   |          12         |
 |   2°     | 7   |          11         |
 |   3°     | 10  |          16         |
 |   4°     | 6   |          12         |
 |   5°     | 5   |          17         |
----------------------------------------
+
 
 ## Análise
 Para este problema, há diversas metodologias de busca que encontram uma sulução viável, como exemplo,  podemos utilizar a busca em largura, custo uniforme, gulosa... O que influência na escolha da melhor metodologia de pesquisa para o devido problema são os custos computacionais e otimalidade da solução. 
