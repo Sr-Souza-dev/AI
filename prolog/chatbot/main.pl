@@ -21,7 +21,7 @@ chatbot():-
     login(L,P).
 
 login(L,P):-
-    sigaa(L,P)-> menu(L,P),fail.
+    sigaa(L,P)-> menu(L,P);format("Usuario ou senha incorreta").
    
 menu(L,P):-
     format("
@@ -45,6 +45,7 @@ esc(4,L,P):- answ4(L,P),!.
 esc(5,L,P):- answ5(L,P),!.
 esc(6,L,P):- answ6(L,P),!.
 esc(7,L,P):- answ7(L,P),!.
+esc(_,L,P):- format("Opção inválida! \n"),exit(L,P).
 
 answ1(L,P):-
     findall([X,Z],materia(X,L,notas,Z),K),
@@ -108,4 +109,3 @@ qtde([],0).
 qtde([_|T],S):-qtde(T,G),S is 1+G.
 soma([],0).
 soma([H|T],S):- soma(T,G),S is H+G. 
-
