@@ -159,6 +159,7 @@ As funções lineareas podem ser usada tanto para regressão quanto para classif
 
 Após encontra a fronteira de separação, é necessário definir um classificador linear (que determina a qual conjunto um determinado dado pertence), para isso tem-se as seguintes funções:
 
+| Classificadores | Imagens representativas das funções de classificação |
 | -------- | -------- |
 | **Limiar**: Converge para uma solução se classes são linearmente separaveis. | <img src="images/linearSeparatorLimiar.png">  |
 | Resultados encontrados com o uso do classificador Limiar | <img src="images/limiarResults.png"> |
