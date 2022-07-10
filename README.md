@@ -5,7 +5,7 @@ Olá, meu nome é Gabriel Rosa. No momento, sou estudante de Engenharia de Compu
 1. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/vacuum-cleaner">Vaccum-Cleaner<a> -> Sistema racional capaz de lipar dois compartimentos;
 2. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/search-solution(missionary-cannibals)">Search-solution(missionary-cannibals)<a> -> Sistema racional que resolve problema do 'missionarios e canibals' através de busca em arvore BFS;
 3. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/search-solution(vacuum-cleaner)">Search-solution(vacuum-cleaner)<a> -> Evolução do algoritmo 1 em um ambiente 3x3 solucionado por BFS.
-4. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/search-solution(vacuum-cleaner)">prolog<a> -> Estudo sobre a linguagem Prolog e desenvolvimento de um chatbot.
+4. <a href="https://github.com/Sr-Souza-dev/AI/tree/main/prolog">Prolog<a> -> Estudo sobre a linguagem Prolog e desenvolvimento de um chatbot.
 
 # Resumo
 ## Agentes
@@ -62,133 +62,131 @@ Um agente é composto por seu código, que são os 'ifs,elses' e por sua arquite
 3. *Agente Baseado em Objetivo*: Sendo bem próximo ao agente baseado em modelos, esse agente possui um conhecimento a priori que é capaz de identificar o ambiente atual e analisar como sua ação afeta ao abiente antes mesmo de toma-la.
 4. *Agente Baseado em Utilidade*: Tentam maximizar seu resultado, pondera a probabilidade de sucesso em relação a importância de objetivos. 
 5. *Agente de Resolução de Problemas*: É um agente baseado em modelos que contém um conhecimento mais geral do problema a ser solucionado, sabe seu espaço de estados e procura nele uma solução boa (possibilitando a execução de buscas por soluções viáveis).
+<br><br>
 
-## Árvores de Busca
-Há dois tipos de busca em arvores:
-1. Não informado: Usuam somente definições do problema (como: depth-first, breadth-first...)
-2. Informado: Usam conhecimento sobre o domínio (além) do problema e heurísticas (como: Greedy best-first, A*).
+**Observação:** Agentes podem encontrar boas soluções através de buscas em árvore, para mais informações sobre os algoritmos de buscas e suas aplicabilidades <a href="***">aperte aqui</a>.
 
-### Medição de desempenho de resolução de problemas e coplexidade
-#### Desempenho:
-1. Completeza: O algoritmo é capaz de achar a solução se ela existir.
-2. Otimização: O algoritmo é capaz de encontrar uma resolução ótima. 
-3. Complexidade de Tempo: É o tempo que o algoritmo gasta para encontrar determimnada solução.
-4. Complexidade de espaço: É o espaço em memória que o algoritmo gata para enocntrar determinada solução.
+<br><br>
 
-#### Complexidade:
-1. Fator de Ramificação (b): número máximo de sucessores de um nó;
-2. Profundidade (d): profundidade do nodo objetivo mais raso;
-3. Comprimento Trajetória (m): maior entre todas as trajetórias. 
+## Propositional Logic
+O comportamento central de um agente baseado em conhecimento é sua base de conhecimento (KB). Informalmente uma base de conhecimento é o conjunto de sentenças, o qual cada sentença é expressa em uma linguagem de representação do conhecimento. 
 
-## Buscas não Informadas
-
-### Breadth-First Search (Busca em largura)
-A busca em largura expande sempre toda a fronteira até encontrar o resultado (meta), ou seja, ela verifica o primeiro filho do node, caso ele não seja o resultado ela o expande, em seguida ela verifica o segundo filho do node, caso ele não seja o resultado ela o expande também, fazendo isso até encontrar a meta. Gerando uma árvore com mais nós folhas devido a sua maneira de expansão e ao armazenamento dos nodos.
-
-
-* *Completeza*: completo (se b é finito);
-* *Otimização*: não necessariamente ótimo, a menos que o custo trajetória seja igual para todas as direções de expansão;
-* *Complexidade de Tempo e espaço*: tempo e memória (profundidade da meta = d, qtd de filhos em cada nodo = b) -> b + b^2 + ... + b^d = O(b^d). <br>
-
-<img src="images/bfs.png" style="width: 50%">
-
-
-### Uniform Cost Search (Busca de custo uniforme)
-No algoritmo de busca de custo uniforme as transições de um nodo para outro são ponderadas, sendo que, atráves desse valor o algoritmo faz sua escolha de expansão, ou seja, ele expandirá sempre a fronteira que tiver menor custo em relação a raiz da árvore.
-
-* *Completeza*: Completo se cada passo tem custo ε > 0;
-* *Otimização*: Ótimo geral
-* *Complexidade de Tempo e espaço*: O(b^{1 + (C*/ε)}) >= O(b^d);
-* *Complexidade de Tempo e espaço (se custo dos passos iguais)*: O(b^{d+1});
-em que 'C*' é o custo da solução ótima, 'd' profundidade da meta e 'b' qtd máx de filhos em cada nodo.
-<img src="images/uniformSearch.png" style="width: 90%">
-
-
-### Depth-First Search (Busca em profundidade)
-Expande/percorre de um vertice até os vértices 'filhos', o mais profundo possível, para somente depois retroceder. (Seu objetivo é descer/aprofundar ao máximo respeitando uma lógica inicial até encontrar o resultado esperado). Caso o algoritmo chegue no ponto mais profundo daquele caminho e não encontre a meta, ele começará a retroceder e apagar as partes já visitadas da arvore para poupar espaço de armazenamento.<br>
-
-* *Completeza*: Este código pode ser considerado completo dependendo do ambiente ao qual ele está operando, caso o ambiente tenha muitos/infinitos estados ele demorará muito para encontrar uma resposta, ou nem encontrará (Completo somente para espaço de estado finito).
-* *Otimização*: Não, pois ele aceitará a primeira solução encontrada.
-* *Complexidade de Tempo*: O(b^s), tal que 'b' é a quantidade de nodos filhos que um nodo tem e 's' é a profundidade máxima de um nodo.
-* *Complexidade de espaço*: O(bs) <br>
-<img src="images/dfs.png" style="width: 50%, margin: 0px auto">
-
-### Depth-limited Search (Busca em profundidade Limitada)
-A busca em profundidade limitada é uma modificação da busca em profundidade explicada no tópico antérior. Para tentar amenizar a ideia de que possa haver um caminho infinito em ralação a profundidade, esse tipo de busca delimita o tamanho em que o algoritmo pode explorar da árvore, focando apenas em uma arvore menos de altura (l) definida pelo programador.<br>
-
-* *Completeza*: Não é completo, pois o tamanho 'l' escolhido pode ser menor que o tamanho 'd' (produndidade do nodo meta).
-* *Otimização*: Não é otimo. 
-* *Complexidade de Tempo e espaço*: O(b^l)
-obs: Conhecimento do dominio da aplicação ajuda a delimitar o limite.
-
-### Iterative-deepening Search (Busca em profundidade progressiva)
-Sendo um algoritmo considerado evolução do algoritmo anterior (Depth-limited Search), neste tipo de busca, o limite é algo dinâmico, sendo atualizado a cada tentativa sem sucesso. Ou seja, ele realizará a primeira interação com um limite 'X', caso ele não encontre a meta, ele fará outra interação com limite 'X+ε', segue assim recurssivamente até encontrar a meta, caso ela exista.
-
-* *Completeza*: Sim se caso o espaço de estados seja finito
-* *Otimização*: SIm se os custos de transição forem iguais em toda arvore
-* *Complexidade de Tempo*: O(b^d)
-* *Complexidade de espaço*: O(bd)
-em que, 'b' é o fator de ramificação e 'd' é a profundidade da solução. 
-<img src="images/dfsI.png" style="width: 100%">
-
-### Bidirectional Search (Busca bidirecional)
-Nem tanto um algoritmo, mas parte mais de uma ideia de como buscar determinado caminho tendo conhecimento da sua meta. No algoritmo de busca bidirecional são feitas buscas em largura ou profundidade na raiz e meta da arvore, quando as duas busca encontram um nodo em comum, significa que um caminho que conecta a meta a raiz foi encontrado. 
-
-* *Completeza*: Sim se 'b' finito
-* *Otimização*: sim se custos de transição entre os nodos forem iguais.
-* *Complexidade de Tempo e espaço*: O(b^{d/2})
-
-<img src="images/bbs.png" style="width: 90%">
-
-
-## Buscas Informadas
-A técnica de busca informada utiliza o conhecimento específico do problema para dar uma pista para a solução do problema. Aqui, a parte mais importante da técnica informada é a função heurística (h(n)) que facilita a transmissão do conhecimento adicional do problema ao algoritmo. Como resultado, ajuda a encontrar o caminho para o objetivo através dos vários nós vizinhos. Existem vários algoritmos baseados na pesquisa informada, como pesquisa heurística em profundidade, pesquisa heurística em amplitude/largura, busca A *, etc.
+Há duas abordagens interessantes para a a construção do agente baseado em conhecimento, sendo elas: 
+1. Declarativa: Começa com uma base de conhecimento vazia, tal que o projetista pode INFORMAR(TELL) sentenças uma a uma até que o agente saiba comom operar em seu ambiente.
+2. Procedural: Em contraste com a abordagem declarativa, a abordagem procedural codifica comportamentos desejados diretamente como código de programa.
+**OBS1:** Um agente bem sucedido sempre deve combinar elements declarativos e procedurais em seu projeto.
 <br>
-A pesquisa informada pode ser vantajosa em termos do custo, em que a otimização é alcançada com custos de pesquisa mais baixos.
-
-### Caracteristicas
-* Conhecimento domínio + problema;
-* Função avaliação f(n);
-* Função heurística h(n);
-* Conhecimento na forma de heurísticas;
-* Algoritmos do tipo best-first (melhor escolha).
-
-em que:
-* n: nó da árvore;
-* f(n): valor de f em n (estimativa custo mínimo através de n);
-* g(n): custo do caminho da raiz até n;
-* h(n) : estimativa do custo mínimo de n até a meta
 
 
-### Best First / Greedy Search (Busca Gulosa)
-Os algoritmos de busca gulosa é similar do algoritmo de busca de custo uniforme, sendo a heurística a função que pondera o custo de cada nodo/transição. Diferente do algoritmo de busca de custo uniforme que visa o ótimo geral, esse algoritmo visa encontrar a solução o mais rápido possível (com menor custo computacional) atráves da heurística inserida, sem garantir otimalidade. Ou seja, enquanto no algoritmo de custo uniforme o nodo expandido é o de menor custo em relação ao nodo atual, na busca gulosa o nodo expandido é o que está mais próximo a meta (condição final) de acordo com a heurística inserida.
+### Inference
+Encadeamento para frente e para trás são os modos usados ​​pelo Inference Engine para deduzir novas informações da base de conhecimento. O Inference Engine é um dos principais componentes do sistema inteligente em Inteligência Artificial que aplica um conjunto de regras lógicas às informações existentes (Base de Conhecimento) para deduzir novas informações do fato já conhecido. 
 
-* *Completeza*: Na maioria dos casos ele é incompleto (depende da heurística aplicada) 
-* *Otimização*: Não é ótimo, devido a sua busca ser direcionada ao menor gasto computacional possível, ele somente tenta encontrar a solução.
-* *Complexidade de Tempo e espaço*: O(b^m), em que 'b' é o fator de ramificação da arvore e 'm' é a profundidade máxima da arvore de busca.
+**Encadeamento para Frente:** O encadeamento direto conhecido por alguns como raciocínio direto ou dedução direta começa com o fato conhecido ou sentença atômica na base de conhecimento e gradualmente regras de inferência são aplicadas aos fatos já conhecidos até atingirmos o estado objetivo. Em poucas palavras, o encadeamento direto toma uma decisão ou atinge o estado da meta com base nos dados disponíveis. <br>O algoritmo mais simples de encadeamento para frente adiciona a base de conhecimento (KB) todas as sentenças atômicas que podem ser deduzidas em uma única etapa das senteças de implicação e das sentenças atômicas que já estão em KB. <br>
+VANTAGENS:
 
-<img src="images/gred.png" style="width: 90%">
+   * O encadeamento direto funciona muito bem quando as informações disponíveis podem ser usadas para atingir o estado do objetivo;
+   * O encadeamento direto tem a capacidade de fornecer muitos dados a partir dos dados iniciais limitados;
+   * O encadeamento direto é mais adequado para a aplicação do sistema Expert que requer mais controle, planejamento e monitoramento;
+   * O encadeamento direto deve ser aplicado quando houver um número limitado de estados ou fatos iniciais
 <br>
-OBS: O algoritmo de busca gulosa considera somente a heurística do problema, sendo: f(n) = h(n)
+DESVANTAGENS:
+
+   * O mecanismo de inferência gerará novas informações sem saber quais informações serão elevantes para atingir o estado da meta;
+   * O usuário pode ter que inserir muitas informações inicialmente sem saber quais informações serão usadas para atingir o estado da meta;
+   * O Inference Engine pode disparar muitas regras que não contribuem para alcançar o estado da meta;
+   * Pode dar uma conclusão diferente, o que pode resultar no alto custo do processo de encadeamento.
+<br>
+
+**Encadeamento para Trás:** Encadeamento para trás ou Propagação para trás é o inverso do encadeamento para frente. Começa a partir do estado do objetivo e se propaga para trás usando regras de inferência, a fim de descobrir os fatos que podem apoiar o objetivo. Também é chamado de raciocínio orientado a objetivos. Inicia a partir do objetivo especificado, procura a ENTÃO parte da regra (parte de ação) se a regra for encontrada e sua parte SE corresponder à Regra de Inferência, em seguida, a regra será executada por outro Mecanismo de Inferência que a definirá como uma nova subobjetiva. <br>
+
+VANTAGENS:
+
+   * A pesquisa no encadeamento reverso é direcionada para que o processamento termine quando o fato for verificado;
+   * O encadeamento reverso considera apenas partes relevantes da base de conhecimento para que nunca realize inferências desnecessárias;
+   * Ao contrário do Forward Chaining, aqui são necessários apenas alguns pontos de dados, mas as regras são pesquisadas exaustivamente;
+   * É muito eficiente para problemas como diagnóstico e depuração
+<br>
+DESVANTAGENS:
+
+   * Como o encadeamento reverso é orientado por objetivos, é necessário conhecer previamente o objetivo para realizar o encadeamento reverso
+   * É difícil implementar encadeamento reverso
+<br>
 
 
+## Learning with examples
+Um agente está aprendendo ou melhorando se melhorar o seu desempenho nas tarefas futuras de aprendizagem após fazer observações sobre o mundo. Para isso, divide-se os dados disponíveis em três etapas, sendo elas:
+1. **Treinamento**: O conjuto de treinamento remete aos dados que o agente terá para melhorar e ajustar os pesos de cada neurônio. É importante que o agente tenha mais dados na fase de treinamento do que na fase de teste, pois é necessário que ele esteja preparado para um range maior de possibilidades. 
+2. **Validação**: Visto que o efeito da superadaptação ocorre em todo tipo de aprendizagem, mesmo quando a função de destino não for de todo aleatória, fez-se necessário a divisão de uma parte do conjunto de treinamento em validação, que visa parametrizar os modelos desde o mais simples (grau 0) até o mais complexo (grau mais elevado), afim de comparalos na etapa de treinamento. O modelo que obtiver o menor erro na etapa de treinamento será o utilizado, assim, evitado o efeito de superadaptação.
+3. **Teste**: O conjunto de testes como o próprio nome remete, serve para testar e avaliar a qualidade da solução/função encontrada. É muito importante que está etapa seja realizada apenas após o seu treinamento, assim podemos evitar a espreita do agente.
+<br>
 
-### Best First / A*
-Para esse algoritmo garantir a otimalizadade do problema, é necessario que haja uma heurística admissível, sendo que, uma heurística é dita como admissível se ela nunca superestima o custo h(n) de atingir o objetivo a partir do nodo n (g(n) + h(n) <= g(n*) === O custo do caminho da raiz até o nodo + o custo da heuristica do nodo até a meta deve ser <= Ao custo real da raiz até a meta)
-Essa busca utiliza de duas informações para definir os seus passos, ela soma o custo da raiz até um determinado nodo e desse mesmo nodo até a meta (por heuristica), o nodo que apresentar o menor valor é o que será expandido e sequentemente verificado.
-
-* *Completeza*: Sim
-* *Otimização*: Sim (se heuristica admissivel)
-* *Complexidade de Tempo e espaço*: Complexidade é exponencial
-* *Complexidade de espaço*:
-
+* **Superadaptação:** Considere o problema de tentar prever se o lançamento de um dado vai dar 6 ou não. Suponha que o experimento seja realizado com dados diferentes e que os atributos que descrevem cada exemplo de treinamento incluem a cor do dado, seu peso, o tempo em que o lançamento foi feito e se os testadores tinha os dedos cruzados. Se os dados forem honestos, a aprendizagem correta será uma árvore com um único nó que diz "não", mas o algoritmo de 'aprendizagem em árvore de decisão" (essa árvore pode ser visualizada no tópico 'Decision Tree' abaixo) vai se aproveitar de qualquer padrão encontrado na entrada. Se for descoberto que há dois lances de um dado azul de 7 g com os dedos cruzados e os dois dão 6, então o algoritmo pode construir um caminho que prevê 6 nesse caso, mesmo não sendo corre. (Tal efeito pode ser evitado com mais exemplos no conjunto de testes - sendo que o conjunto de testes deve ser cada vez maior quando o grau da solução também for maior).
 
 
+### Feedback to Learning
+Existem trés tipos de feedback que determinam os três principais tipos de aprendizagem:
+
+1. **Aprendizagem não supervisionada:** O agente aprende padrões de entradas, embora não seja fornecido nenhum feedback explícito. A tarefa mais comun de aprendizagem não supervisionada é o agrupamento: a detecção de grupos de exemplos de entrada potencialmente úteis. Exemplo: um agente pode desenvolver gradualmente um conceito de 'dia de trafego bom' e 'dia de trafego ruim' sem nunca ter sido rotulados exemplos de cada um deles por um ser externo, ou seja, ele se desenvolve com o conjunto de suas percepções e desenvolve conceitos não introduzidos ou indicados. 
+2. **Aprendizagem por reforço:** O agente aprende a partir de uma série de reforços (recompensas ou punições). Por exemplo, a falta de gorjeta ao final de uma corrida dá ao agente do táxi a indicação de que algo saiu errado.
+3. **Aprendizagem supervisionada:** O agente observa (recebe) alguns exemplos de pares de entrada e saída, e aprende uma função que faz o mapeamento da entrada para a saída. Por exemplo, um agente que deseja prever o valor de uma ação no dia seguinte, na sua fase treinamento ele recebe um conjunto de entradas e uma saída esperada.
+4. **Aprendizagem semissupervisionada:** São dados poucos exemplos rotulados e deve-se fazer o que puder de uma grande coleção de exemplos não rotulados. Por exemplo, um agente que visa prever a idade das pessoas, a princípio ele vê o rosto das pessoas e recebe sua idade (expressas por elas mesmas), porém algumas podem mentir, não falar... portanto não haverá somente ruidos aleatórios nos dados, mas as imprecisões são sistemáticas, e descrobi-las é um problema de aprendizagem não supervisionada, envolvendo imagens, idades autorrelatadas e idades verdadeiras. Assim, tanto ruído como falta de rótulo cria um continuum entre aprendizagem supervisionada e não supervisionada.
+
+### Kinds of problems
+Há dois tipos de problemas que são capazes de representar toda forma de aprendizagem, sendo eles:
+1. **Classificação:** É um tipo em que se deseja inserir elemenos a um conjunto de conjuntos restritos. Por exemplo, quando a saída for de um conjunto finito de valores (como ensolarado, nublado ou chuvoso), o problema é chamado de classificação
+2. **Regressão:** Se trata de saídas com um range mais amplo (conjunto tendendo ao infinito). Por exemplo, se a saída for um número (como temperatura de amanhã), o problema de aprendizagem é chamado de regressão.
+
+### Decision Tree
+A indução de árvore de decisão é uma das formas mais simples, e ainda assim mais bem-sucedidas, de aprendizagem de maquina. Primeiro, descrevemos a representação, o espaço de hipótese e em seguida, como aprender uma boa hipótese. Para isso, a árvore de decisão como entrada um vetor de valores de atributos e retorna uma decisão (um valor de saída única). Sendo cada nó interno  da árvore um teste de um dos atributos de entrada e cada nó folha especifica um valor a ser retornado pela função. 
+<a href="http://web.tecnico.ulisboa.pt/ana.freitas/bioinformatics.ath.cx/bioinformatics.ath.cx/indexf23d.html?id"><img src="images/tree-decision.png"></a>
+
+## Linear Regression and Classification
+### Univalued Linear Regression
+Uma função linear univalorada (linha reta), com entrada x e ytem a forma "Hw = W1*x + W0", onde W0 e W1 são coeficientes de valores reais a serem aprendidos (pesos). A tarefa de encontrar o "Hw" que melhor se encncaixe nos dados disponíveis é chamada de regressão linear. 
+
+O caminho para encontrar os pesos [W0, W1] que minimizam a perda empírica pode ser através do calculo da função quadrática de Gauss, levando a função perda para um plano tridimensional. Como desejamos minimizar a perda da aproximação da função, basta calcular a descida pelo gradiente até encontrar o valor mínimo da função de 3D. O tamanho do passo (visto que a função continua tem infinitos valores entre dois números, o tamanho do passo define de quantos em quantos valores vamos caminhar nessa função) é geralmente chamado de **taxa de aprendizagem** quando estamos tentando minimizar a perda em um problema de aprendizagem.<br>
+
+Esses metodos constituem a regra de aprendizagem: <br>
+**Descida pelo gradiente em lotes:** Objetiva minimizar a soma das perdas individuais para cada exemplo de teste, realizando ajustes de forma interativa. A convergência é garantida para o único mínimo global, mas pode ser muito lenta, visto que, temos que percorrer todos os dados de treinamento para cada etapa.
+**Descida estócastica pelo gradiente:** Considera um único ponto de treinamento por vez, seguindo uma etapa após a outra (calculando a perda em cada uma delas). Esse método de descida pode ser utilizado em um ambiente on-line, onde chegam novos dados, um de cada vez, ou off-line, onde percorremos os mesmos dados tantas vezes quantas forem necessárias, selecionando uma etapa depois de considerar cada exemplo.
+<img src="images/linearRegression.png">
+
+### Linear Classification
+As funções lineareas podem ser usada tanto para regressão quanto para classificação. Para isso temos o conceito de fronteira de separação, tal que:
+**Fronteira de separação:** É uma linha (ou uma surperficie, em dimensões superiores) que separa as duas classes. O limite de decisão é chamado de separador linear e os dados que admitem tal separador são chamados de linearmente separáveis.
+
+<img src="images/linearClassification.png"> <br>
+
+Após encontra a fronteira de separação, é necessário definir um classificador linear (que determina a qual conjunto um determinado dado pertence), para isso tem-se as seguintes funções:
+| -------- | -------- |
+| **Limiar**: Converge para uma solução se classes são linearmente separaveis. | <img src="images/linearSeparatorLimiar.png">  |
+| Resultados encontrados com o uso do classificador Limiar | <img src="images/limiarResults.png"> |
+| **Logística:** Sendo também conhecida como função sigmoide, a função logística se comporta melhor em pontos perto do Limiar (centro de incerteza da separação), ela é como se fosse uma suavização da função Limiar, tornando-a continua. O processo de ajuste dos pesos desse modelo é chamado de regressão lógistica | <img src="images/linearSeparatorSigmod.png"> |
+| Resultados encontrados com o uso do classificador Logística | <img src="images/logisticResults.png"> |
+| -------- | --------- |
 
 
+### Support Vector Machine (SVM)
+Quando os dados não são linearmente separáveis, deve-se utilizar uma outra abordagem conhecida como "máquina de vetor de suporte" que aproveita do conceito que - Linear em grande dimensão é não linear no espaço original.
 
-* *Completeza*: 
-* *Otimização*:
-* *Complexidade de Tempo*:
-* *Complexidade de espaço*:
+A ideia é encontrar um objeto geométrico separador de classes, que pode ser uma linha em um espaço bidimensional, um plano em um espaço tridimensional ou um hiperplano, em um espaço n-dimensional de atributos.
 
+<img src="images/SVM-Separator.png">
+
+**Obs:** A SVM também pode ser utilizada quando os dados são linearmente separáveis, porém ela terá um custo computacional mais elevado em comparação aos metodos lineares. Normalmente ultiliza-se o SVM para tudo, pois não sabemos se os dados são linearmente separáveis. 
+
+# Computational Intelligence
+A Inteligência Computacional, ou IC, ainda não tem um conceito definido totalmente, mas pode-se considerar a parte que estuda soluções imprecisas ou inexatas.
+
+A IC tem relação com a computação macia, permitindo estudar áreas de conhecimento com pouco aprofundamento pelo ser humano. A diferença para a IA está nos modelos estudados.
+
+Enquanto a IA estuda modelos com base no raciocínio humano, a IC estuda modelos com base nas áreas complexas da natureza, como o estudo de algoritmos genéticos, redes neurais artificiais ou mesmo a Inteligência de Enxames.
+
+Podendo ser dividida em 3 grandes áres: redes neurais, sistemas fuzzy e computação evolutiva.
+
+<img src="images/computationalIntelligence.png">
+
+## Artificial Neural Networks
+
+# References 
+<a src="https://www.digitalhouse.com/br/blog/maquina-de-vetores-de-suporte/">Support Vector Machine</a>
