@@ -73,7 +73,8 @@ O comportamento central de um agente baseado em conhecimento é sua base de conh
 
 Há duas abordagens interessantes para a a construção do agente baseado em conhecimento, sendo elas: 
 1. Declarativa: Começa com uma base de conhecimento vazia, tal que o projetista pode INFORMAR(TELL) sentenças uma a uma até que o agente saiba comom operar em seu ambiente.
-2. Procedural: Em contraste com a abordagem declarativa, a abordagem procedural codifica comportamentos desejados diretamente como código de programa.
+2. Procedural: Em contraste com a abordagem declarativa, a abordagem procedural codifica comportamentos desejados diretamente como código de programa.<br>
+
 **OBS1:** Um agente bem sucedido sempre deve combinar elements declarativos e procedurais em seu projeto.
 <br>
 
@@ -81,33 +82,31 @@ Há duas abordagens interessantes para a a construção do agente baseado em con
 ### Inference
 Encadeamento para frente e para trás são os modos usados ​​pelo Inference Engine para deduzir novas informações da base de conhecimento. O Inference Engine é um dos principais componentes do sistema inteligente em Inteligência Artificial que aplica um conjunto de regras lógicas às informações existentes (Base de Conhecimento) para deduzir novas informações do fato já conhecido. 
 
-**Encadeamento para Frente:** O encadeamento direto conhecido por alguns como raciocínio direto ou dedução direta começa com o fato conhecido ou sentença atômica na base de conhecimento e gradualmente regras de inferência são aplicadas aos fatos já conhecidos até atingirmos o estado objetivo. Em poucas palavras, o encadeamento direto toma uma decisão ou atinge o estado da meta com base nos dados disponíveis. <br>O algoritmo mais simples de encadeamento para frente adiciona a base de conhecimento (KB) todas as sentenças atômicas que podem ser deduzidas em uma única etapa das senteças de implicação e das sentenças atômicas que já estão em KB. <br>
+#### Encadeamento para Frente:
+O encadeamento direto conhecido por alguns como raciocínio direto ou dedução direta começa com o fato conhecido ou sentença atômica na base de conhecimento e gradualmente regras de inferência são aplicadas aos fatos já conhecidos até atingirmos o estado objetivo. Em poucas palavras, o encadeamento direto toma uma decisão ou atinge o estado da meta com base nos dados disponíveis. <br>O algoritmo mais simples de encadeamento para frente adiciona a base de conhecimento (KB) todas as sentenças atômicas que podem ser deduzidas em uma única etapa das senteças de implicação e das sentenças atômicas que já estão em KB. <br>
 VANTAGENS:
-
    * O encadeamento direto funciona muito bem quando as informações disponíveis podem ser usadas para atingir o estado do objetivo;
    * O encadeamento direto tem a capacidade de fornecer muitos dados a partir dos dados iniciais limitados;
    * O encadeamento direto é mais adequado para a aplicação do sistema Expert que requer mais controle, planejamento e monitoramento;
    * O encadeamento direto deve ser aplicado quando houver um número limitado de estados ou fatos iniciais
 <br>
 DESVANTAGENS:
-
    * O mecanismo de inferência gerará novas informações sem saber quais informações serão elevantes para atingir o estado da meta;
    * O usuário pode ter que inserir muitas informações inicialmente sem saber quais informações serão usadas para atingir o estado da meta;
    * O Inference Engine pode disparar muitas regras que não contribuem para alcançar o estado da meta;
    * Pode dar uma conclusão diferente, o que pode resultar no alto custo do processo de encadeamento.
 <br>
 
-**Encadeamento para Trás:** Encadeamento para trás ou Propagação para trás é o inverso do encadeamento para frente. Começa a partir do estado do objetivo e se propaga para trás usando regras de inferência, a fim de descobrir os fatos que podem apoiar o objetivo. Também é chamado de raciocínio orientado a objetivos. Inicia a partir do objetivo especificado, procura a ENTÃO parte da regra (parte de ação) se a regra for encontrada e sua parte SE corresponder à Regra de Inferência, em seguida, a regra será executada por outro Mecanismo de Inferência que a definirá como uma nova subobjetiva. <br>
+#### Encadeamento para Trás:
+Encadeamento para trás ou Propagação para trás é o inverso do encadeamento para frente. Começa a partir do estado do objetivo e se propaga para trás usando regras de inferência, a fim de descobrir os fatos que podem apoiar o objetivo. Também é chamado de raciocínio orientado a objetivos. Inicia a partir do objetivo especificado, procura a ENTÃO parte da regra (parte de ação) se a regra for encontrada e sua parte SE corresponder à Regra de Inferência, em seguida, a regra será executada por outro Mecanismo de Inferência que a definirá como uma nova subobjetiva.<br>
 
 VANTAGENS:
-
    * A pesquisa no encadeamento reverso é direcionada para que o processamento termine quando o fato for verificado;
    * O encadeamento reverso considera apenas partes relevantes da base de conhecimento para que nunca realize inferências desnecessárias;
    * Ao contrário do Forward Chaining, aqui são necessários apenas alguns pontos de dados, mas as regras são pesquisadas exaustivamente;
    * É muito eficiente para problemas como diagnóstico e depuração
 <br>
 DESVANTAGENS:
-
    * Como o encadeamento reverso é orientado por objetivos, é necessário conhecer previamente o objetivo para realizar o encadeamento reverso
    * É difícil implementar encadeamento reverso
 <br>
@@ -124,7 +123,7 @@ Um agente está aprendendo ou melhorando se melhorar o seu desempenho nas tarefa
 
 
 ### Feedback to Learning
-Existem trés tipos de feedback que determinam os três principais tipos de aprendizagem:
+Existem quatro tipos de feedback que determinam os três principais tipos de aprendizagem:
 
 1. **Aprendizagem não supervisionada:** O agente aprende padrões de entradas, embora não seja fornecido nenhum feedback explícito. A tarefa mais comun de aprendizagem não supervisionada é o agrupamento: a detecção de grupos de exemplos de entrada potencialmente úteis. Exemplo: um agente pode desenvolver gradualmente um conceito de 'dia de trafego bom' e 'dia de trafego ruim' sem nunca ter sido rotulados exemplos de cada um deles por um ser externo, ou seja, ele se desenvolve com o conjunto de suas percepções e desenvolve conceitos não introduzidos ou indicados. 
 2. **Aprendizagem por reforço:** O agente aprende a partir de uma série de reforços (recompensas ou punições). Por exemplo, a falta de gorjeta ao final de uma corrida dá ao agente do táxi a indicação de que algo saiu errado.
@@ -138,6 +137,7 @@ Há dois tipos de problemas que são capazes de representar toda forma de aprend
 
 ### Decision Tree
 A indução de árvore de decisão é uma das formas mais simples, e ainda assim mais bem-sucedidas, de aprendizagem de maquina. Primeiro, descrevemos a representação, o espaço de hipótese e em seguida, como aprender uma boa hipótese. Para isso, a árvore de decisão como entrada um vetor de valores de atributos e retorna uma decisão (um valor de saída única). Sendo cada nó interno  da árvore um teste de um dos atributos de entrada e cada nó folha especifica um valor a ser retornado pela função. 
+
 <a href="http://web.tecnico.ulisboa.pt/ana.freitas/bioinformatics.ath.cx/bioinformatics.ath.cx/indexf23d.html?id"><img src="images/tree-decision.png"></a>
 
 ## Linear Regression and Classification
@@ -160,8 +160,10 @@ As funções lineareas podem ser usada tanto para regressão quanto para classif
 Após encontra a fronteira de separação, é necessário definir um classificador linear (que determina a qual conjunto um determinado dado pertence), para isso tem-se as seguintes funções:
 | -------- | -------- |
 | **Limiar**: Converge para uma solução se classes são linearmente separaveis. | <img src="images/linearSeparatorLimiar.png">  |
+| -------- | -------- |
 | Resultados encontrados com o uso do classificador Limiar | <img src="images/limiarResults.png"> |
 | **Logística:** Sendo também conhecida como função sigmoide, a função logística se comporta melhor em pontos perto do Limiar (centro de incerteza da separação), ela é como se fosse uma suavização da função Limiar, tornando-a continua. O processo de ajuste dos pesos desse modelo é chamado de regressão lógistica | <img src="images/linearSeparatorSigmod.png"> |
+| --------- | -------- |
 | Resultados encontrados com o uso do classificador Logística | <img src="images/logisticResults.png"> |
 | -------- | --------- |
 
@@ -187,6 +189,12 @@ Podendo ser dividida em 3 grandes áres: redes neurais, sistemas fuzzy e computa
 <img src="images/computationalIntelligence.png">
 
 ## Artificial Neural Networks
+A hipótese de que a atividade mental consiste basicamente na atividade eletroquímica em redes de células cerebrais chamadas neurônios inspirou varia teorias. Alguns dos trabalhos mais antigos de IA tiveram o objetivo de criar redes neurais artificiais (outros nomes do campo incluem conexionismo, processamento distribuído em paralelo e computação neural). Grosseiramente
+falando, ele “dispara” quando uma combinação linear de suas entradas excede algum limiar (rígido
+ou suave), ou seja, ele implementa um classificador linear. Uma rede neural é apenas uma coleção de unidades conectadas; as propriedades da rede são determinadas pela sua topologia e pelas propriedades dos “neurônios”.
+
+<a href="https://medium.com/@avinicius.adorno/redes-neurais-artificiais-418a34ea1a39"><img src="images/neuralnetwork-neuro.png"></a>
 
 # References 
-<a src="https://www.digitalhouse.com/br/blog/maquina-de-vetores-de-suporte/">Support Vector Machine</a>
+<a src="https://www.digitalhouse.com/br/blog/maquina-de-vetores-de-suporte/">Support Vector Machine</a> <br>
+<a src="https://medium.com/@avinicius.adorno/redes-neurais-artificiais-418a34ea1a39">Artificial Neural Networks</a> <br>
