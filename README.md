@@ -158,12 +158,11 @@ As funções lineareas podem ser usada tanto para regressão quanto para classif
 <img src="images/linearClassification.png"> <br>
 
 Após encontra a fronteira de separação, é necessário definir um classificador linear (que determina a qual conjunto um determinado dado pertence), para isso tem-se as seguintes funções:
+
 | -------- | -------- |
 | **Limiar**: Converge para uma solução se classes são linearmente separaveis. | <img src="images/linearSeparatorLimiar.png">  |
-| -------- | -------- |
 | Resultados encontrados com o uso do classificador Limiar | <img src="images/limiarResults.png"> |
 | **Logística:** Sendo também conhecida como função sigmoide, a função logística se comporta melhor em pontos perto do Limiar (centro de incerteza da separação), ela é como se fosse uma suavização da função Limiar, tornando-a continua. O processo de ajuste dos pesos desse modelo é chamado de regressão lógistica | <img src="images/linearSeparatorSigmod.png"> |
-| --------- | -------- |
 | Resultados encontrados com o uso do classificador Logística | <img src="images/logisticResults.png"> |
 | -------- | --------- |
 
