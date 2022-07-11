@@ -216,7 +216,7 @@ Uma rede com todas as entradas conectadas diretamente com as saídas é chamada 
 
 <img src="images/perceptron-oneLayer.png">
 
-### Multilayer forward-feeding neural networks
+### Multilayer forward-feeding neural networks (MLP - Milti-Layer Perceptron)
 Como os perceptrons são capazes de somente representar conjuntos lineramente separáveis (funções lineares), foi-se desenvolvido a rede multicamada que trabalha com mais de um perceptron (adicionando o conceito de camadas ocultas) com alimentação para frente, gerando a capacidade para realizar regressão não linear.
 
 Com mais unidades ocultas, podemos produzir outros sobressaltos de tamanhos diferentes em outros lugares. Na verdade, com uma camada oculta única, suficientemente grande, é possível representar qualquer função contínua de entrada com precisão arbitrária; com duas camadas, podem ser representadas até mesmo funções descontínuas. Infelizmente, para qualquer estrutura de rede
@@ -228,20 +228,25 @@ particular, é mais difícil caracterizar exatamente as funções que podem ser 
 O metódo de treinamento de uma rede perceptron é conhecido, tal que podemos calcular o erro fazendo uma comparação da saída desejada com a saída encontrada e ajustar os pesos a partir disso, porém, em uma rede multicamada não é tão simples assim, enquanto que o erro 'y − h_w' na camada de saída é claro, o erro nas camadas ocultas parece misterioso porque os dados de
 treinamento não dizem que valor os nós ocultos devem ter. Felizmente, verifica-se que podemos retropropagar o erro da camada de saída para as camadas ocultas. O processo de retropropagação emerge diretamente de uma derivação do gradiente de erro geral.
 
-| Regra | Formúla |
-| ----- | ------- |
-| Calculo do peso da última camda (output) | <img src="images/form/form_leran_output.png"> |
-| Calculo do peso das camadas intermediárias | <img src="images/form/form_leran_mult.png"> |
-| Calculo do peso da primeira camda | <img src="images/form/form_learn_firtLayer.png"> |
-| Calculo em geral | <img src="images/form/learn_general.png"> |
+| Regra | Descrição | Formúla |
+| ----- | --------- | ------- |
+| Calculo do erro da ultima camada | Y_{DK}(p) = saída desejada para o neurônio k na interação p | <img src="images/form/err_output_multLayer.png"> |
+| Calculo do peso da última camda (output) | É similar à da regra Delta, aplicada ao perceptron | <img src="images/form/form_leran_output.png"> |
+| Erro Modificado | onde, δ_k(p) é o gradiente do erro cometido | <img src="images/form/errModificado.png"> |
+| Gradiente do erro cometido | Derivada da função de ativação multiplicada pelo erro de sua saída | <img src="images/form/GradientError.png"> |
+| Calculo do peso das camadas ocultas | onde, δ_k(p) é o gradiente do erro cometido no neurônio j da camada oculta na inteção p | <img src="images/form/form_leran_mult.png"> |
+| Gradiente do erro no neurônio J | em que y_j é a saída do neurônio j | <img src="images/form/GradienteErrorJ.png"> |
+| Regra Delta | Calculo em geral Perceptron | <img src="images/form/learn_general.png"> |
 
-onde w_i(p) corresponde ao peso da entrada i, α é a taxa de aprendizado, e(p) é uma medida de erro, x_i(p) a entrada i do neurônio, ∆_k é o erro modificado (Err_k * g'(in_k)) e ∆_j é a regra de propragação (g'(in_k) * Σ_k w_(j,k) *  ∆_k).
+onde w_j(p) corresponde ao peso da entrada j, α é a taxa de aprendizado, e(p) é uma medida de erro e x_j(p) a entrada j do neurônio.
+
+<img src="images/backPropagation.png">
 
 O processo de retropropagação pode ser resumido da seguinte forma:
-   * Calcule valores ∆ para as unidades de saída usando o erro observado.
-   * A partir da camada de saída, repita o seguinte para cada camada da rede até que a primeira camada oculta seja alcançada:
-     * Propague os valores ∆ de volta à camada anterior.
-     * Atualize os pesos entre as duas camadas.
+
+| BackPropagation | Aplicada a função sigmoidal |
+| --------------  | --------------------------- |
+| <img src="images/backPropagation1.png"> | <img src="images/backPropagation2.png">
 
 
 # References 
