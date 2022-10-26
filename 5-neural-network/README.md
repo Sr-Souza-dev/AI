@@ -61,5 +61,4 @@ O processo de retropropagação pode ser resumido da seguinte forma:
 
 
 # References 
-<a href="https://www.digitalhouse.com/br/blog/maquina-de-vetores-de-suporte/">Support Vector Machine</a> <br>
 <a href="https://medium.com/@avinicius.adorno/redes-neurais-artificiais-418a34ea1a39">Artificial Neural Networks</a> <br>

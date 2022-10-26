@@ -1,0 +1,19 @@
+[
+{
+  "directory": "/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/Peceptron.dir/main.cpp.o -c \"/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/main.cpp\"",
+  "file": "/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/main.cpp"
+},
+
+{
+  "directory": "/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/Peceptron.dir/src/layers.cpp.o -c \"/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/src/layers.cpp\"",
+  "file": "/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/src/layers.cpp"
+},
+
+{
+  "directory": "/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/Peceptron.dir/src/perceptron.cpp.o -c \"/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/src/perceptron.cpp\"",
+  "file": "/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/perceptron/src/perceptron.cpp"
+}
+]
