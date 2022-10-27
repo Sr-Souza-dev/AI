@@ -14,7 +14,7 @@ public:
 	Perceptron(){}
 	Perceptron(int inQtd){
 		for(int i=0; i<inQtd; i++){
-			w.push_back(0.5);
+			w.push_back(0.3);
 		}
 	}
 
@@ -31,13 +31,21 @@ public:
 		}
 		return ativation(x, limiar);
 	}
+
+	void print(){
+		cout<<"Pesos: ";
+		for(auto it : w){
+			cout<<setw(7)<<setprecision(3)<<it;
+		}
+		printf("\n");
+	}
 };
 
 
 int main(){
 	vector<int> x1 = {0, 0, 1, 1};
 	vector<int> x2 = {0, 1, 0, 1};
-	vector<int> Out = {0, 0, 0, 1};
+	vector<int> Out = {0, 1, 1, 0};
 
 	Perceptron p(2);
 
@@ -54,6 +62,7 @@ int main(){
 			if(err == 0) cont++;
 
 			p.recalculate(err, {x1[i], x2[i]}, alpha);
+			p.print();
 		}
 		if (cont>=4) break;
 	}
@@ -65,5 +74,6 @@ int main(){
 		cout<< p.calculate({inX1, inX2}, limiar) << endl;
 
 	}while(inX1 != 99);
-
+	cout<<"Epoc: "<<qtd<<endl;
+	exit(0);
 }
