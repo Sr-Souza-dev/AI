@@ -12,7 +12,7 @@ Layers::Layers(int inQtd, int layersQtd, float alpha, vector<int> qtdEachLay, ve
         inMx = qtdEachLay[idx];
         while (inMx--)
         {
-            aux.push_back(Perceptron(inQtd,ativationEachLay[idx]));
+            aux.push_back(Perceptron(inQtd+1,ativationEachLay[idx]));
         }  
         layers.push_back(aux);      aux.clear();
         inQtd = qtdEachLay[idx];
@@ -20,23 +20,21 @@ Layers::Layers(int inQtd, int layersQtd, float alpha, vector<int> qtdEachLay, ve
     }
 }
 
-void Layers::calculate(vector<float> in, float limiar){
+void Layers::calculate(vector<float> in, float limiar, float bias){
     vector<float> aux;
+    in.push_back(bias);
     for(int layer=0; layer<layers.size(); layer++){
         for(int neur=0; neur<layers[layer].size(); neur++){
             layers[layer][neur].calculate(in, limiar);
             aux.push_back(layers[layer][neur].out);
         }
         in.clear();
-        in = aux;
+        in = aux;   in.push_back(bias);
         aux.clear();
     }
 }
 
-
-
-//void Perceptron::recalculate(vector<float> in, float alpha, float err, function<float(float)> custFunc, bool ishidde){
-void Layers::backPropagation(vector<float> in, vector<float> out, float alpha, function<float(float)> custFunc){
+void Layers::backPropagation(vector<float> in, vector<float> out, float bias, function<float(float)> custFunc){
     vector<float> curIn;
     for(int neur=0; neur<layers[layers.size()-1].size(); neur++){
         layers[layers.size()-1][neur].del = (out[neur] - layers[layers.size()-1][neur].out) * pow(custFunc(layers[layers.size()-1][neur].neuron),2);
@@ -48,10 +46,11 @@ void Layers::backPropagation(vector<float> in, vector<float> out, float alpha, f
             for(int neur=0; neur<layers[lay-1].size(); neur++){
                 curIn.push_back(layers[lay][neur].out);
             }
-        }else curIn = in;
+        }else curIn = in;   
+        curIn.push_back(bias);
         
         for(int neur=0; neur<layers[lay].size(); neur++){
-            layers[lay][neur].recalculate(curIn, alpha, &layers[lay-1], custFunc); //Melhorar aqui
+            layers[lay][neur].recalculate(curIn, alpha, &layers[lay-1], custFunc, lay <= 0.1 ? false : true); //Melhorar aqui
         }
         curIn.clear();
     }
@@ -59,7 +58,7 @@ void Layers::backPropagation(vector<float> in, vector<float> out, float alpha, f
 
 void Layers::print(){
     for(int layer=0; layer<layers.size(); layer++){
-        printf("\n ********************** Camada %d ********************** \n",layer+1);
+        printf("\n ********************************************** Camada %d ************************************************ \n",layer+1);
         for(int neur=0; neur<layers[layer].size(); neur++){
             printf("Neuron: %d,%d   ->   ",layer+1,neur+1);
             layers[layer][neur].print();
