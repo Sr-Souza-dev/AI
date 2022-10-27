@@ -1,3 +1,0 @@
-/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/mlp/build/CMakeFiles/rebuild_cache.dir
-/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/mlp/build/CMakeFiles/edit_cache.dir
-/home/sr-souza/Área de Trabalho/College/IA/5-neural-network/mlp/build/CMakeFiles/Peceptron.dir
